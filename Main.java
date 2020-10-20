@@ -1,9 +1,10 @@
 class Main {
-  public static void main(String[] args){
+  public static void main(String[] args) throws Exception{
 
-    TesteSimples teste = new TesteSimples();
-    teste.Executar();
+    //TesteSimples teste = new TesteSimples();
+    TesteUnitario TU = new TesteUnitario();
+    TU.ExecutarAll();
 
-    System.out.println("imcmonitor, fim!");
+    System.out.println("\nimcmonitor, fim!");
   }
 }
