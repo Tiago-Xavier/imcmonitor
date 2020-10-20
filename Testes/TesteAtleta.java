@@ -1,10 +1,5 @@
-class TesteUnitario {
-
-  public void ExecutarAll() throws Exception {
-    this.testeNome();
-    this.testeIdade();
-  } 
-
+class TesteAtleta{
+  
   public void testeNome() throws Exception{
     
     Atleta atleta = new Atleta();
