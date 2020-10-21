@@ -1,11 +1,12 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 class TelaConsoleMenu{
 
   Scanner read = new Scanner(System.in);
-  Atleta atletaAcademia = new Atleta();
+  ArrayList<Atleta> matriculas = new ArrayList<Atleta>();
 
-public void executar(){
+ public void executar(){
 
   boolean sair = false;
   int op;
@@ -17,9 +18,26 @@ public void executar(){
         System.out.println("11 [>] LISTAGEM");
         System.out.println(" 0 [X] SAIR");
         System.out.println("---------------");
-        System.out.println("Opcao: ");
+        System.out.print("Opcao: ");
         op = read.nextInt();
 
+        switch(op) {
+          case 1: 
+            this.incluirNovoAtleta();
+          break;
+
+          case 11: 
+            this.listarAtletas();
+          break;
+
+          case 0: 
+            sair = true;
+          break;
+
+          // defaul: será uma Exception
+        }
+      
+      /*
         if(op == 1) {
           this.incluirNovoAtleta();
         }
@@ -30,13 +48,13 @@ public void executar(){
 
         if(op == 0) {
           sair = true;
-        }
+        } */
   }
 
-  System.out.println("\nfim, telaconsolemenu!");
-}
+  System.out.println("\nMenu encerrado!");
+ }
 
-private void incluirNovoAtleta(){
+ private void incluirNovoAtleta(){
 
   System.out.println("\nNovo Atleta");
 
@@ -49,15 +67,26 @@ private void incluirNovoAtleta(){
     Atleta novo = new Atleta();
       novo.setNome(nome);
       novo.setIdade(idade);
+      matriculas.add(novo);
 
-    atletaAcademia = novo;
-}
+    System.out.println("\nAtleta inserido! \n");
+ }
 
-private void listarAtletas(){
+ private void listarAtletas(){
 
   System.out.println("\nListagem de atletas:");
-  System.out.println("- "+ atletaAcademia.getNome() + "(" + atletaAcademia.getIdade() +")");
   
-}
+  if(matriculas.size() > 0){
+   int i = 1;
+    for(Atleta athlete : matriculas){
+      System.out.println(i++ +"- " + athlete.getNome() + "("+ athlete.getIdade() + ")");
+    }  
+  } 
+  
+  else {
+    System.out.println("Nenhum atleta matriculado!");
+  }
+  
+ }
 
 }
