@@ -15,40 +15,43 @@ class TelaConsoleMenu{
 
     System.out.println("\n**** MENU ****");
         System.out.println(" 1 [+] ATLETA");
-        System.out.println("11 [>] LISTAGEM");
+        System.out.println(" 2 [+] AVALIACAO");
+        System.out.println(" 3 [>] LISTAGEM");
+        System.out.println(" 4 [>] CONSULTA ATLETA");
+        System.out.println(" 5 [X] ATLETA");
         System.out.println(" 0 [X] SAIR");
         System.out.println("---------------");
         System.out.print("Opcao: ");
         op = read.nextInt();
 
-        switch(op) {
+         switch(op) {
           case 1: 
             this.incluirNovoAtleta();
           break;
 
-          case 11: 
+          case 2: 
+            System.out.println("\nfuncionalidade em desenvolvimento...");
+          break;
+          
+          case 3: 
             this.listarAtletas();
+          break;
+
+          case 4: 
+            System.out.println("\nfuncionalidade em desenvolvimento...");
+          break;
+
+          case 5: 
+            this.removerAtleta();
           break;
 
           case 0: 
             sair = true;
           break;
 
-          // defaul: será uma Exception
+          default:
+            System.out.println("\nOpção inválida! \nEscolha novamente.");
         }
-      
-      /*
-        if(op == 1) {
-          this.incluirNovoAtleta();
-        }
-
-        if(op == 11) {
-          this.listarAtletas();
-        }
-
-        if(op == 0) {
-          sair = true;
-        } */
   }
 
   System.out.println("\nMenu encerrado!");
@@ -89,4 +92,23 @@ class TelaConsoleMenu{
   
  }
 
+ private void removerAtleta(){
+   
+   if(matriculas.size() > 0) {
+     System.out.println("\nRemover atleta:");
+      this.listarAtletas();
+
+     System.out.print("\nSelecione: ");
+      int posicao = read.nextInt();
+
+      matriculas.remove(posicao - 1);
+
+     System.out.println("\nAtleta removido!");
+    }
+   
+   else{
+     System.out.println("\nNão há atletas para remoção!");
+   }
+  }
+ 
 }
